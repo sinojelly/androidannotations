@@ -4,27 +4,40 @@ version = '1.0.0.BUILD-SNAPSHOT'
 
 buildscript {
     repositories {
+        mavenLocal()
         mavenCentral()
     }
 
-    def gradleAndroidAnnotationsPluginVersion = '0.3.0'
+    def gradleAndroidAnnotationsPluginVersion = '0.4.0.BUILD-SNAPSHOT'
 
     dependencies {
         classpath "net.ealden.gradle.plugins:gradle-androidannotations-plugin:$gradleAndroidAnnotationsPluginVersion"
+        //classpath 'com.android.tools.build:gradle:0.4.2'
     }
 }
 
 apply plugin: 'androidannotations'
+//apply plugin: 'android'
+//apply plugin: 'gradle-androidannotations-plugin'
 apply plugin: 'idea'
+
+androidAnnotationsVersion = '3.0-SNAPSHOT'
 
 def compatibilityVersion = 1.6
 sourceCompatibility = compatibilityVersion
 targetCompatibility = compatibilityVersion
 
-repositories {
-    mavenCentral()
-}
+//repositories {
+  //  mavenCentral()
+//}
+/*
+android {
+    target='android-17'
+        compileSdkVersion 17 
+            buildToolsVersion "17.0.0"
+            }
 
+*/
 clean {
     delete 'gen'
 }
